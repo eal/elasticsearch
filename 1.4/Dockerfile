@@ -10,6 +10,8 @@ RUN apt-get update \
 	&& apt-get install elasticsearch=$ELASTICSEARCH_VERSION \
 	&& rm -rf /var/lib/apt/lists/*
 
+RUN /usr/share/elasticsearch/bin/plugin install elasticsearch/elasticsearch-river-twitter/2.4.2
+
 ENV PATH /usr/share/elasticsearch/bin:$PATH
 COPY config /usr/share/elasticsearch/config
 
